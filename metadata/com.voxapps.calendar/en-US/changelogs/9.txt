@@ -9,3 +9,5 @@
 **Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
 
 **Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
+
+**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
