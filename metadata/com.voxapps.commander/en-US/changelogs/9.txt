@@ -1,0 +1,25 @@
+# VoxCommander commander-v0.8-beta
+
+## Changes
+
+- fix: revert unnecessary versionCode bumps and robustify F-Droid sync (67f7aa4)
+- feat: add F-Droid metadata sync and bump versionCode for all apps (6d95646)
+- Fix: Corrected keyAlias for Vox Commander release signing in CI (04adc34)
+- feat(attachments): capture attachments directly from the camera (f5cd545)
+- fix(calendar): reminder preset chips overflow in a plain Row (8869b61)
+- feat(calendar): exact-alarm reminders for non-recurring entries (ac12e0c)
+- docs: refresh latest-release links in README (ebe3ec4)
+- deps: bump androidx.media:media from 1.7.0 to 1.8.0 (#36) (2f2e2cb)
+- fix(commander): make ModelManagementViewModel's IO dispatcher injectable (ed215fe)
+- docs: refresh latest-release links in README (53e1d14)
+- docs: refresh latest-release links in README (a40f5ae)
+- docs(fastlane): add extra screenshots for calendar, commander, expenses, hub (8f58f6b)
+- feat(notes,expenses,calendar): scrollable widgets + header tap-to-open (ec2a0c6)
+- docs: refresh latest-release links in README (d2091e0)
+
+## Full Changelog
+
+https://github.com/razvan-eduard/VoxApps/compare/expenses-v0.15...commander-v0.8-beta
+
+
+**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/vision-v0.11...commander-v0.8-beta
