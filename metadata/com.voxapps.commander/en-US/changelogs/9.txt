@@ -2,6 +2,7 @@
 
 ## Changes
 
+- fix: force add metadata in F-Droid deploy (was ignored by .gitignore) (45b4a52)
 - fix: revert unnecessary versionCode bumps and robustify F-Droid sync (67f7aa4)
 - feat: add F-Droid metadata sync and bump versionCode for all apps (6d95646)
 - Fix: Corrected keyAlias for Vox Commander release signing in CI (04adc34)
