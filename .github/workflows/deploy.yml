@@ -130,6 +130,27 @@ jobs:
             repo/index-v1.jar vox-apps
           jarsigner -verify repo/index-v1.jar
 
+      - name: Structure for standard F-Droid URL
+        # Satisfies fdroid.link's expectation of a /fdroid/repo structure to avoid "malformed"
+        # warning. We keep both root-level repo/ and fdroid/repo/ for backward compatibility.
+        run: |
+          mkdir -p fdroid
+          cp -r repo fdroid/
+          
+          # Create a root index.html to help users and satisfy fdroid.link
+          cat > index.html <<EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>VoxApps F-Droid Repository</title>
+            <meta http-equiv="refresh" content="0; url=fdroid/repo/">
+          </head>
+          <body>
+            <p>The repository has moved to <a href="fdroid/repo/">fdroid/repo/</a>.</p>
+          </body>
+          </html>
+          EOF
+
       - name: Remove the decoded keystore before publishing
         if: always()
         run: rm -f keystore.p12

@@ -21,11 +21,14 @@ app to the mirror, and a note on the one real bug hit so far. See `README.md` fo
    folded into each version's `whatsNew` field.
 5. **Re-signs `index-v1.jar` with SHA-256** (see "Known gotcha" below) — a step this workflow adds
    on top of plain `fdroid update`.
-6. Deletes the decoded keystore, uploads `repo/` (plus generated `metadata/`, `archive/` etc.) as
-   the Pages artifact, deploys via `actions/deploy-pages@v4`.
+6. **URL Standardizing**: Moves the resulting `repo/` directory into an `fdroid/` sub-directory
+   and creates a redirect `index.html` at the root. This satisfies tools like `fdroid.link` that
+   expect a `/fdroid/repo` path.
+7. Deletes the decoded keystore, uploads the root directory (containing `fdroid/repo/`, `index.html`,
+   plus any residual `repo/`) as the Pages artifact, and deploys via `actions/deploy-pages@v4`.
 
-Nothing here is committed back to the repo — `repo/`, `metadata/`, `archive/`, etc. are gitignored
-and rebuilt fresh every run.
+Nothing here is committed back to the repo — `repo/`, `fdroid/`, `metadata/`, `archive/`, etc. are
+rebuilt fresh every run.
 
 ## Forcing a rebuild
 
@@ -52,7 +55,7 @@ release has real "what changed" text in its body — but `fdroid update` never s
 It only picks up changelog text from `metadata/<packageName>/en-US/changelogs/<versionCode>.txt`
 files sitting alongside `repo/` at index-build time, which is what the "Download the latest APK per
 VoxApps app" step now writes for each app: it reads the just-downloaded APK's real
-`packageName`/`versionCode` via `aapt dump badging` (not a hardcoded app→package table — same
+`packageName`/`versionCode` via `aapt dump badging` (not a hardcoded app->package table — same
 source of truth `fdroid update` itself uses) and copies that release's `gh release view --json
 body` straight into the changelog file. The text is the raw GitHub-auto-generated markdown
 verbatim — clients render it as plain text, so PR-link bullets show as raw URLs rather than
@@ -78,7 +81,7 @@ step). `entry.jar` (the v2-protocol trust bundle most current clients actually u
 affected — `fdroid update` already signs it with SHA-256.
 
 If apps stop showing up in a client again, `jarsigner -verify -verbose <file>.jar` against the
-live `https://razvan-eduard.github.io/vox-fdroid-repo/repo/<file>.jar` is the first thing to check
+live `https://razvan-eduard.github.io/vox-fdroid-repo/fdroid/repo/<file>.jar` is the first thing to check
 before assuming the JSON data itself is wrong.
 
 ## Why pipx, not apt, for fdroidserver

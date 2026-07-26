@@ -8,7 +8,12 @@ with `fdroidserver`, and publishes it via Pages. Runs daily and on manual dispat
 ## Add this repo to F-Droid
 
 In the F-Droid app: Settings → Repositories → add
-`https://razvan-eduard.github.io/vox-fdroid-repo/repo`.
+`https://razvan-eduard.github.io/vox-fdroid-repo/fdroid/repo`.
+
+> [!NOTE]
+> The repository URL has been updated to follow the standard `/fdroid/repo` structure to ensure
+> compatibility with all F-Droid clients and tools. The old URL (.../repo) still works for now but
+> will be deprecated.
 
 ## One-time setup (before the workflow can run)
 
