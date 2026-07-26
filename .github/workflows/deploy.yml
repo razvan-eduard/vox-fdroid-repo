@@ -1,0 +1,99 @@
+name: Deploy F-Droid repo
+
+# Manual runs for testing/forcing a rebuild, plus a daily sweep to pick up
+# whatever VoxApps has released since the last run.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *" # 02:00 UTC daily
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deployment at a time; a new run supersedes an in-flight one
+# rather than queuing behind it.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install fdroidserver + apksigner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fdroidserver apksigner
+
+      - name: Create repo/ directory
+        run: mkdir -p repo
+
+      - name: Download the latest APK per VoxApps app
+        # VoxApps tags releases per app (commander-vX.Y, calendar-vX.Y, ...), not one combined
+        # release for the whole monorepo — "gh release view --latest" would only ever return
+        # whichever single app happened to publish most recently, silently dropping every other
+        # app from the mirror. Instead, resolve the newest tag per app prefix explicitly.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          SOURCE_REPO="razvan-eduard/VoxApps"
+          APPS="commander calendar expenses notes vision hub"
+          for app in $APPS; do
+            echo "== $app =="
+            tag=$(gh release list --repo "$SOURCE_REPO" --limit 200 \
+                  --json tagName,createdAt,isDraft \
+                  --jq "[.[] | select(.isDraft == false) | select(.tagName | startswith(\"${app}-\"))] | sort_by(.createdAt) | last | .tagName // empty")
+            if [ -z "$tag" ]; then
+              echo "No release found for $app, skipping."
+              continue
+            fi
+            echo "Latest $app release: $tag"
+            gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*.apk" --dir repo/ --clobber \
+              || echo "No .apk asset on $tag, skipping."
+          done
+          echo "Downloaded APKs:"
+          ls -la repo/
+
+      - name: Decode signing keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: echo "$KEYSTORE_BASE64" | base64 --decode > keystore.p12
+
+      - name: Configure signing key
+        # keystorepass/keypass/repo_keyalias must live in config.yml itself — fdroidserver doesn't
+        # read them from bare env vars — so they're appended here from the secret at runtime rather
+        # than ever being committed to config.yml in the repo.
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        run: |
+          cat >> config.yml <<EOF
+          keystore: $(pwd)/keystore.p12
+          keystorepass: "$KEYSTORE_PASSWORD"
+          keypass: "$KEYSTORE_PASSWORD"
+          repo_keyalias: "vox-apps"
+          EOF
+
+      - name: fdroid update
+        run: fdroid update -c
+
+      - name: Remove the decoded keystore before publishing
+        if: always()
+        run: rm -f keystore.p12
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,10 @@
+# Everything below is generated fresh by the deploy workflow on every run
+# (downloaded APKs + fdroid update output) and published straight to GitHub
+# Pages — never committed. Ignored here in case of a local test run.
+repo/
+metadata/
+archive/
+stats/
+tmp/
+unsigned/
+keystore.p12

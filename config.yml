@@ -1,0 +1,12 @@
+# fdroidserver repo configuration.
+# Docs: https://f-droid.org/docs/Setup_an_F-Droid_App_Repo/
+#
+# keystore/keystorepass/keypass are NOT set here — they're injected at
+# workflow runtime from GitHub Secrets (see .github/workflows/deploy.yml)
+# so the signing password never touches this file in the repo.
+
+repo_url: "https://razvan-eduard.github.io/vox-fdroid-repo/repo"
+repo_name: "Vox Apps"
+repo_icon: "icon.png"
+repo_description: "Private F-Droid repository for the Vox offline suite."
+archive_older: 3
