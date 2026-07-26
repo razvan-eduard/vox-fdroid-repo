@@ -8,16 +8,17 @@ app to the mirror, and a note on the one real bug hit so far. See `README.md` fo
 
 `.github/workflows/deploy.yml`, on every run (`workflow_dispatch` or the daily 02:00 UTC cron):
 
-1. Installs `apksigner` (apt) and `fdroidserver` (**pipx**, not apt — see "Why pipx" below).
+1. Installs `apksigner` + `aapt` (apt) and `fdroidserver` (**pipx**, not apt — see "Why pipx" below).
 2. For each app prefix in the hardcoded `APPS` list (`commander calendar expenses notes vision
    hub`), resolves the **newest non-draft release whose tag starts with `<app>-`** in
    `razvan-eduard/VoxApps` and downloads its `.apk` asset into `repo/`. This per-prefix resolution
    (not GitHub's "latest release") matters because VoxApps tags releases per app, not one combined
-   release for the whole monorepo.
+   release for the whole monorepo. Also stages that release's changelog (see "Changelogs" below).
 3. Decodes the `KEYSTORE_BASE64` secret to `keystore.p12`, appends `keystore`/`keystorepass`/
    `keypass`/`repo_keyalias` to `config.yml` **at runtime** (never committed).
 4. Runs `fdroid update -c`, which builds `repo/index-v1.json`, `index-v2.json`, `entry.json`, and
-   signs the legacy `index-v1.jar` + `entry.jar`.
+   signs the legacy `index-v1.jar` + `entry.jar`. This is also where the staged changelog text gets
+   folded into each version's `whatsNew` field.
 5. **Re-signs `index-v1.jar` with SHA-256** (see "Known gotcha" below) — a step this workflow adds
    on top of plain `fdroid update`.
 6. Deletes the decoded keystore, uploads `repo/` (plus generated `metadata/`, `archive/` etc.) as
@@ -43,6 +44,20 @@ Edit the `APPS` variable in the "Download the latest APK per VoxApps app" step o
 (space-separated prefixes matching that app's release-tag prefix in VoxApps, e.g. `commander`).
 No other file needs to change — `fdroid update` picks up any `.apk` dropped into `repo/`
 automatically from its manifest.
+
+## Changelogs
+
+VoxApps' own release workflows already run with `generate_release_notes: true`, so every GitHub
+release has real "what changed" text in its body — but `fdroid update` never sees that on its own.
+It only picks up changelog text from `metadata/<packageName>/en-US/changelogs/<versionCode>.txt`
+files sitting alongside `repo/` at index-build time, which is what the "Download the latest APK per
+VoxApps app" step now writes for each app: it reads the just-downloaded APK's real
+`packageName`/`versionCode` via `aapt dump badging` (not a hardcoded app→package table — same
+source of truth `fdroid update` itself uses) and copies that release's `gh release view --json
+body` straight into the changelog file. The text is the raw GitHub-auto-generated markdown
+verbatim — clients render it as plain text, so PR-link bullets show as raw URLs rather than
+clickable links; that's a cosmetic tradeoff, not a bug, and can be revisited later if it's noisy in
+practice.
 
 ## Known gotcha: index-v1.jar signed with a disabled algorithm
 

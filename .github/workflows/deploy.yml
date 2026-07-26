@@ -28,10 +28,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install apksigner
+      - name: Install apksigner and aapt
         run: |
           sudo apt-get update
-          sudo apt-get install -y apksigner
+          sudo apt-get install -y apksigner aapt
 
       - name: Install fdroidserver
         # Not apt-get: Ubuntu's packaged fdroidserver (2.2.1) ships an old androguard that fails on
@@ -50,6 +50,14 @@ jobs:
         # release for the whole monorepo — "gh release view --latest" would only ever return
         # whichever single app happened to publish most recently, silently dropping every other
         # app from the mirror. Instead, resolve the newest tag per app prefix explicitly.
+        #
+        # Also stages each release's changelog: VoxApps' release workflows already run with
+        # generate_release_notes: true, so every GitHub release has real "what changed" text
+        # sitting in its body — fdroid update never sees it on its own, though. It only picks up
+        # changelog text from metadata/<packageName>/en-US/changelogs/<versionCode>.txt files
+        # sitting alongside repo/ at index-build time, so that's what gets written here, using
+        # aapt (not a hardcoded app->package table) to read the real packageName/versionCode
+        # straight out of the downloaded APK — the same source of truth fdroid update itself uses.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -67,7 +75,21 @@ jobs:
             fi
             echo "Latest $app release: $tag"
             gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*.apk" --dir repo/ --clobber \
-              || echo "No .apk asset on $tag, skipping."
+              || { echo "No .apk asset on $tag, skipping."; continue; }
+
+            apk=$(ls -t repo/*.apk | head -1)
+            badging=$(aapt dump badging "$apk")
+            package_name=$(echo "$badging" | sed -n "s/.*package: name='\([^']*\)'.*/\1/p")
+            version_code=$(echo "$badging" | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p")
+            if [ -z "$package_name" ] || [ -z "$version_code" ]; then
+              echo "Couldn't read package/versionCode from $apk, skipping changelog."
+              continue
+            fi
+
+            changelog_dir="metadata/$package_name/en-US/changelogs"
+            mkdir -p "$changelog_dir"
+            gh release view "$tag" --repo "$SOURCE_REPO" --json body --jq .body \
+              > "$changelog_dir/$version_code.txt"
           done
           echo "Downloaded APKs:"
           ls -la repo/
