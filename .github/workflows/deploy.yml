@@ -28,10 +28,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install fdroidserver + apksigner
+      - name: Install apksigner
         run: |
           sudo apt-get update
-          sudo apt-get install -y fdroidserver apksigner
+          sudo apt-get install -y apksigner
+
+      - name: Install fdroidserver
+        # Not apt-get: Ubuntu's packaged fdroidserver (2.2.1) ships an old androguard that fails on
+        # newer AAPT2-compiled resources.arsc ("androguard.core.bytecodes.axml.ResParserError: res1
+        # must be zero!") — confirmed on-run against real VoxApps release APKs. pipx installs the
+        # current PyPI release in its own venv, which F-Droid's own docs recommend for CI use anyway.
+        run: |
+          pipx install fdroidserver
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Create repo/ directory
         run: mkdir -p repo
