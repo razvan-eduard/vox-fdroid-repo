@@ -19,3 +19,6 @@ In the F-Droid app: Settings → Repositories → add
      password for the store and every key).
 3. Run the workflow once manually (Actions → Deploy F-Droid repo → Run workflow) to confirm it
    deploys cleanly, rather than waiting for the next 02:00 UTC cron run.
+
+See [`USAGE.md`](USAGE.md) for how the deploy workflow works step by step, how to force a rebuild,
+how to add a new app to the mirror, and known gotchas.
