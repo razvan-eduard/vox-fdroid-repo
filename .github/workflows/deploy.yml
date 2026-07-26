@@ -94,6 +94,20 @@ jobs:
       - name: fdroid update
         run: fdroid update -c
 
+      - name: Re-sign the index with a modern algorithm
+        # fdroid update's jarsigner call picks SHA1withRSA on this runner's JDK/keystore
+        # combination — modern F-Droid clients (and modern JDKs) treat SHA1-signed jars as
+        # unsigned and silently show zero apps, even though the underlying JSON is correct
+        # (confirmed via `jarsigner -verify`: "WARNING: The jar will be treated as unsigned").
+        # Re-signing explicitly with SHA-256 overrides that default.
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        run: |
+          jarsigner -sigalg SHA256withRSA -digestalg SHA-256 \
+            -keystore keystore.p12 -storetype PKCS12 -storepass "$KEYSTORE_PASSWORD" \
+            repo/index-v1.jar vox-apps
+          jarsigner -verify repo/index-v1.jar
+
       - name: Remove the decoded keystore before publishing
         if: always()
         run: rm -f keystore.p12
