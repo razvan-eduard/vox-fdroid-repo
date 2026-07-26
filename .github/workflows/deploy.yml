@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install apksigner and aapt
         run: |
@@ -34,10 +36,6 @@ jobs:
           sudo apt-get install -y apksigner aapt
 
       - name: Install fdroidserver
-        # Not apt-get: Ubuntu's packaged fdroidserver (2.2.1) ships an old androguard that fails on
-        # newer AAPT2-compiled resources.arsc ("androguard.core.bytecodes.axml.ResParserError: res1
-        # must be zero!") — confirmed on-run against real VoxApps release APKs. pipx installs the
-        # current PyPI release in its own venv, which F-Droid's own docs recommend for CI use anyway.
         run: |
           pipx install fdroidserver
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
@@ -46,18 +44,8 @@ jobs:
         run: mkdir -p repo
 
       - name: Download the latest APK per VoxApps app
-        # VoxApps tags releases per app (commander-vX.Y, calendar-vX.Y, ...), not one combined
-        # release for the whole monorepo — "gh release view --latest" would only ever return
-        # whichever single app happened to publish most recently, silently dropping every other
-        # app from the mirror. Instead, resolve the newest tag per app prefix explicitly.
-        #
-        # Also stages each release's changelog: VoxApps' release workflows already run with
-        # generate_release_notes: true, so every GitHub release has real "what changed" text
-        # sitting in its body — fdroid update never sees it on its own, though. It only picks up
-        # changelog text from metadata/<packageName>/en-US/changelogs/<versionCode>.txt files
-        # sitting alongside repo/ at index-build time, so that's what gets written here, using
-        # aapt (not a hardcoded app->package table) to read the real packageName/versionCode
-        # straight out of the downloaded APK — the same source of truth fdroid update itself uses.
+        # VoxApps tags releases per app, resolve the newest tag per app prefix.
+        # This step only downloads APKs. Metadata is already synced from VoxApps to the metadata/ dir in this repo.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -76,20 +64,6 @@ jobs:
             echo "Latest $app release: $tag"
             gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*.apk" --dir repo/ --clobber \
               || { echo "No .apk asset on $tag, skipping."; continue; }
-
-            apk=$(ls -t repo/*.apk | head -1)
-            badging=$(aapt dump badging "$apk")
-            package_name=$(echo "$badging" | sed -n "s/.*package: name='\([^']*\)'.*/\1/p")
-            version_code=$(echo "$badging" | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p")
-            if [ -z "$package_name" ] || [ -z "$version_code" ]; then
-              echo "Couldn't read package/versionCode from $apk, skipping changelog."
-              continue
-            fi
-
-            changelog_dir="metadata/$package_name/en-US/changelogs"
-            mkdir -p "$changelog_dir"
-            gh release view "$tag" --repo "$SOURCE_REPO" --json body --jq .body \
-              > "$changelog_dir/$version_code.txt"
           done
           echo "Downloaded APKs:"
           ls -la repo/
@@ -100,9 +74,6 @@ jobs:
         run: echo "$KEYSTORE_BASE64" | base64 --decode > keystore.p12
 
       - name: Configure signing key
-        # keystorepass/keypass/repo_keyalias must live in config.yml itself — fdroidserver doesn't
-        # read them from bare env vars — so they're appended here from the secret at runtime rather
-        # than ever being committed to config.yml in the repo.
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
@@ -114,14 +85,22 @@ jobs:
           EOF
 
       - name: fdroid update
-        run: fdroid update -c
+        # We ensure metadata/ is processed. F-Droid update looks for metadata in the current dir.
+        run: |
+          # F-Droid might need per-app metadata files to correctly pick up folders.
+          # We create them if they don't exist.
+          for d in metadata/*/; do
+            if [ -d "$d" ]; then
+              pkg=$(basename "$d")
+              if [ ! -f "metadata/$pkg.yml" ]; then
+                echo "Creating skeleton metadata for $pkg to ensure folder discovery"
+                echo "Categories: [Office]" > "metadata/$pkg.yml"
+              fi
+            fi
+          done
+          fdroid update -c
 
       - name: Re-sign the index with a modern algorithm
-        # fdroid update's jarsigner call picks SHA1withRSA on this runner's JDK/keystore
-        # combination — modern F-Droid clients (and modern JDKs) treat SHA1-signed jars as
-        # unsigned and silently show zero apps, even though the underlying JSON is correct
-        # (confirmed via `jarsigner -verify`: "WARNING: The jar will be treated as unsigned").
-        # Re-signing explicitly with SHA-256 overrides that default.
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
@@ -131,8 +110,6 @@ jobs:
           jarsigner -verify repo/index-v1.jar
 
       - name: Structure for standard F-Droid URL
-        # Satisfies fdroid.link's expectation of a /fdroid/repo structure to avoid "malformed"
-        # warning. We keep both root-level repo/ and fdroid/repo/ for backward compatibility.
         run: |
           mkdir -p fdroid
           cp -r repo fdroid/
