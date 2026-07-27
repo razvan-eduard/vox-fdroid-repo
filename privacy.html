@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - VoxApps</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #6200ee; border-bottom: 2px solid #6200ee; padding-bottom: 0.5rem; }
+        h2 { color: #3700b3; margin-top: 2rem; }
+        .highlight { background-color: #f3e5f5; border-left: 4px solid #6200ee; padding: 1rem; margin: 1rem 0; }
+        footer { margin-top: 3rem; font-size: 0.9rem; color: #666; text-align: center; }
+        a { color: #6200ee; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for VoxApps Suite</h1>
+        <p><strong>Last Updated: July 2026</strong></p>
+        <p>This Privacy Policy applies to the VoxApps ecosystem, including <strong>Vox Commander, Vox Notes, Vox Expenses, Vox Calendar, Vox Vision, and Vox Hub</strong>.</p>
+
+        <div class="highlight">
+            <strong>🛡️ Core Privacy Principle: 100% On-Device</strong><br>
+            The fundamental principle of VoxApps is that your personal data belongs to you. Unlike traditional cloud-based assistants and productivity suites, <strong>VoxApps is designed to function entirely offline.</strong>
+        </div>
+
+        <h2>1. Information Collection and Use</h2>
+        <p>VoxApps <strong>does not collect, transmit, or store</strong> any of your personal information on remote servers. All processing is done locally on your hardware.</p>
+        <ul>
+            <li><strong>Voice Data</strong>: Audio captured for wake-word detection and speech-to-text (STT) is processed in real-time on your device. No audio recordings or transcriptions are ever sent to us or any third party.</li>
+            <li><strong>Personal Records</strong>: Your notes, expenses, calendar events, and scanned documents are stored in an encrypted database (SQLCipher) strictly on your local device storage.</li>
+            <li><strong>Biometric Data</strong>: We use standard Android biometric prompts for secure access. We do not have access to your actual fingerprint or face data; we only receive the "Success/Failure" signal from the OS.</li>
+        </ul>
+
+        <h2>2. Optional Third-Party Integrations</h2>
+        <p>Users may optionally choose to enable cloud-based features. These are <strong>Off by Default</strong> and require explicit user configuration:</p>
+        <ul>
+            <li><strong>Cloud NLU (OpenAI/Gemini)</strong>: If you choose to use a cloud-based AI engine, the transcribed text of your commands (and optionally images for OCR cleanup) will be sent to the respective provider (OpenAI or Google). This data is subject to their own privacy policies.</li>
+            <li><strong>Media Control (Spotify)</strong>: If you connect your Spotify account, we use the official Spotify SDK to control local playback. No account data is harvested by VoxApps.</li>
+        </ul>
+
+        <h2>3. Data Permissions</h2>
+        <p>We request specific permissions only to enable core functionality:</p>
+        <ul>
+            <li><strong>Microphone</strong>: For voice commands.</li>
+            <li><strong>Camera</strong>: For document scanning.</li>
+            <li><strong>Notifications</strong>: To capture transaction info (for Vox Expenses) or show active service status.</li>
+            <li><strong>Files/Media</strong>: To store encrypted backups and attachments.</li>
+        </ul>
+
+        <h2>4. Peer-to-Peer Sync (NFC/Bluetooth)</h2>
+        <p>Data synchronization between your own devices is handled directly via NFC and Bluetooth. No cloud middleman or central server is used for this process.</p>
+
+        <h2>5. Contact Us</h2>
+        <p>Since this is an open-source project, any privacy concerns can be raised as an issue on our official repository: <a href="https://github.com/razvan-eduard/VoxApps">https://github.com/razvan-eduard/VoxApps</a></p>
+    </div>
+    <footer>
+        &copy; 2026 VoxApps Suite - Open Source & Privacy First
+    </footer>
+</body>
+</html>
