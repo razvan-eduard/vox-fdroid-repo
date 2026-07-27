@@ -45,7 +45,7 @@ jobs:
 
       - name: Download the latest APK per VoxApps app
         # VoxApps tags releases per app, resolve the newest tag per app prefix.
-        # This step only downloads APKs. Metadata is already synced from VoxApps to the metadata/ dir in this repo.
+        # Metadata (changelogs/icons) is now pushed directly from VoxApps to this repo's metadata/ dir.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -85,15 +85,14 @@ jobs:
           EOF
 
       - name: fdroid update
-        # We ensure metadata/ is processed. F-Droid update looks for metadata in the current dir.
+        # Metadata folder is already populated with clean txt files from VoxApps.
+        # We ensure F-Droid recognizes these apps by creating skeleton .yml files if missing.
         run: |
-          # F-Droid might need per-app metadata files to correctly pick up folders.
-          # We create them if they don't exist.
           for d in metadata/*/; do
             if [ -d "$d" ]; then
               pkg=$(basename "$d")
               if [ ! -f "metadata/$pkg.yml" ]; then
-                echo "Creating skeleton metadata for $pkg to ensure folder discovery"
+                echo "Creating skeleton metadata for $pkg"
                 echo "Categories: [Office]" > "metadata/$pkg.yml"
               fi
             fi
@@ -114,7 +113,7 @@ jobs:
           mkdir -p fdroid
           cp -r repo fdroid/
           
-          # Create a root index.html to help users and satisfy fdroid.link
+          # Create a root index.html redirect
           cat > index.html <<EOF
           <!DOCTYPE html>
           <html>
