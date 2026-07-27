@@ -1,26 +1,76 @@
-# VoxCommander commander-v0.8-beta
-
-## Changes
-
-- fix: force add metadata in F-Droid deploy (was ignored by .gitignore) (45b4a52)
-- fix: revert unnecessary versionCode bumps and robustify F-Droid sync (67f7aa4)
-- feat: add F-Droid metadata sync and bump versionCode for all apps (6d95646)
-- Fix: Corrected keyAlias for Vox Commander release signing in CI (04adc34)
-- feat(attachments): capture attachments directly from the camera (f5cd545)
-- fix(calendar): reminder preset chips overflow in a plain Row (8869b61)
-- feat(calendar): exact-alarm reminders for non-recurring entries (ac12e0c)
-- docs: refresh latest-release links in README (ebe3ec4)
-- deps: bump androidx.media:media from 1.7.0 to 1.8.0 (#36) (2f2e2cb)
-- fix(commander): make ModelManagementViewModel's IO dispatcher injectable (ed215fe)
-- docs: refresh latest-release links in README (53e1d14)
-- docs: refresh latest-release links in README (a40f5ae)
-- docs(fastlane): add extra screenshots for calendar, commander, expenses, hub (8f58f6b)
-- feat(notes,expenses,calendar): scrollable widgets + header tap-to-open (ec2a0c6)
-- docs: refresh latest-release links in README (d2091e0)
-
-## Full Changelog
-
-https://github.com/razvan-eduard/VoxApps/compare/expenses-v0.15...commander-v0.8-beta
-
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/vision-v0.11...commander-v0.8-beta
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- chore: version bump apps to trigger fresh GitHub Actions builds
+- docs: add baseline screenshots for IzzyOnDroid metadata
+- docs: document today's duplicate-rule engine, local/remote LLM tuning, and fixes
+- feat(datahygiene,expenses): generic duplicate-rule engine with OFF/manual-review modes
+- feat(ipc,commander,expenses): tune notification-parse prompt to the active engine
+- fix(expenses): payment source app list unreachable behind missing scroll
+- fix(commander): serialize local LLM calls; surface real OpenAI failure reasons
+- feat(apppicker): full-screen modal picker with Cancel/Done confirmation
+- feat(notes,expenses,calendar): stage new-record attachments before an id exists
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- fix(vision): crop fallback, standalone UI parity, auto-capture false-triggers; feat(notes): category-colored editor border
+- docs: refresh latest-release links in README
+- docs(readme): merge Build Status + Latest Releases into one auto-generated table
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: remove stale WALKTHROUGH.md milestone snapshot
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- feat(hub): per-app backup config, multi-domain attachment zips; fix attachment file-delete race + zoom modal
+- feat: shared record attachments across Notes/Expenses/Calendar
+- feat(vision): background-thread live detection, smoother rectangle tracking, processing overlay
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- feat(vision): manual capture button to bypass auto-scan wait
+- feat(vision,expenses): return-to-caller scan flow, fix duplicate auto-capture, clarify record-creation settings
+- docs: refresh latest-release links in README
+- fix(vision): re-enable R8 minification — 56.7MB to 4.3MB release APK
+- docs(readme): add APK size to build-status table
+- feat(expenses): unified duplicate detection, widget border, income/expense arrows
+- feat(calendar): configurable widget day-card border + mandatory-title hint
+- docs: add VoxApps banner and per-app build-status table to README
+- fix(readme): scope title release badge to Commander's own tag
+- docs: document durable LLM queue + color picker; restructure README
+- fix(ipc): durable retry queue for Commander LLM broadcasts
+- fix(expenses): debounce Force-check notifications button
+- feat(design): shared color picker across notes/expenses/calendar
+- docs: refresh latest-release links in README
+- chore(expenses): bump version to 0.10
+- feat(expenses): category color adjacency, merchant category memory, inline category creation
+- docs: refresh latest-release links in README
+- chore(expenses): bump version to trigger release build
+- feat(expenses): transaction direction + configurable near-duplicate merge
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: document peer-to-peer sync + Hub scheduled backups; bump versions
+- fix(hub): add missing R8 keep rules for Tink (androidx.security.crypto)
+- feat(hub): implement Phase F — per-peer sync scope selection
+- feat(hub): implement Phase E — Bluetooth transport, sync orchestration, scheduled auto-sync
+- feat(hub): implement Phase D — NFC device pairing for peer-to-peer sync
+- feat(sync): implement Phase C merge algorithm and per-app sync handlers
+- feat(ipc): add OP_SYNC_EXPORT/OP_SYNC_MERGE for peer-to-peer sync
+- fix(calendar): add spacing between same-day entries in month/agenda view
+- feat: add sync identity (uid/updatedAt/tombstones) to Expense, Note, Calendar
+- feat(calendar): current-time indicator + all-day pane in Week view
+- docs: refresh latest-release links in README
+- docs(commander): update onboarding tutorial for recent features
+- feat(hub): scheduled backups (frequency, retention, restore) + Logs tab
+- feat(logging): unify Logger + in-app log viewer across all apps
+- fix(i18n): clarify "attach photo" toggle labels say AI processing
+- feat(expenses): add settings toggle for location prefill
+- fix(commander): shorten weather location cache from 30 days to 1 day
+- feat(expenses): prefill expense location from GPS-derived city
+- feat: gray out + explain Commander/Vision-dependent features instead of failing silently
+- docs: fix stale README cross-references, add release-process docs
+- docs: strip internal implementation details from README's user-facing copy
+- docs: link WALKTHROUGH.md from README's Further Reading
+- docs: trim README to a short overview, move deep details into docs/
+- docs: refresh latest-release links in README

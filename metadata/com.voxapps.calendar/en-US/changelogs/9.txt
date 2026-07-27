@@ -1,13 +1,17 @@
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
-
-**Full Changelog**: https://github.com/razvan-eduard/VoxApps/compare/hub-v0.9...calendar-v0.9
+- docs: refresh latest-release links in README
+- chore: version bump apps to trigger fresh GitHub Actions builds
+- docs: add baseline screenshots for IzzyOnDroid metadata
+- docs: document today's duplicate-rule engine, local/remote LLM tuning, and fixes
+- feat(datahygiene,expenses): generic duplicate-rule engine with OFF/manual-review modes
+- feat(ipc,commander,expenses): tune notification-parse prompt to the active engine
+- fix(expenses): payment source app list unreachable behind missing scroll
+- fix(commander): serialize local LLM calls; surface real OpenAI failure reasons
+- feat(apppicker): full-screen modal picker with Cancel/Done confirmation
+- feat(notes,expenses,calendar): stage new-record attachments before an id exists
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- fix(vision): crop fallback, standalone UI parity, auto-capture false-triggers; feat(notes): category-colored editor border
+- docs: refresh latest-release links in README
+- docs(readme): merge Build Status + Latest Releases into one auto-generated table
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
