@@ -35,32 +35,34 @@
         <p>This Privacy Policy applies to the VoxApps ecosystem, including <strong>Vox Commander, Vox Notes, Vox Expenses, Vox Calendar, Vox Vision, and Vox Hub</strong>.</p>
 
         <div class="highlight">
-            <strong>🛡️ Core Privacy Principle: 100% On-Device</strong><br>
-            The fundamental principle of VoxApps is that your personal data belongs to you. Unlike traditional cloud-based assistants and productivity suites, <strong>VoxApps is designed to function entirely offline.</strong>
+            <strong>🛡️ Core Privacy Principle: Local-First / Private by Default</strong><br>
+            The fundamental principle of VoxApps is that your personal data belongs to you. VoxApps uses a **Local-First architecture**, where core processing and data storage stay on your device. Optional cloud integrations can be enabled for enhanced intelligence.
         </div>
 
         <h2>1. Information Collection and Use</h2>
-        <p>VoxApps <strong>does not collect, transmit, or store</strong> any of your personal information on remote servers. All processing is done locally on your hardware.</p>
+        <p>VoxApps <strong>does not collect, transmit, or store</strong> any of your personal information on remote servers. All core processing is done locally on your hardware.</p>
         <ul>
-            <li><strong>Voice Data</strong>: Audio captured for wake-word detection and speech-to-text (STT) is processed in real-time on your device. No audio recordings or transcriptions are ever sent to us or any third party.</li>
+            <li><strong>Voice Data</strong>: Audio captured for wake-word detection and speech-to-text (STT) is processed in real-time on your device. By default, no audio or transcriptions leave the device.</li>
             <li><strong>Personal Records</strong>: Your notes, expenses, calendar events, and scanned documents are stored in an encrypted database (SQLCipher) strictly on your local device storage.</li>
-            <li><strong>Biometric Data</strong>: We use standard Android biometric prompts for secure access. We do not have access to your actual fingerprint or face data; we only receive the "Success/Failure" signal from the OS.</li>
+            <li><strong>Biometric Data</strong>: We use standard Android biometric prompts. We do not have access to your actual biometric data.</li>
         </ul>
 
-        <h2>2. Optional Third-Party Integrations</h2>
-        <p>Users may optionally choose to enable cloud-based features. These are <strong>Off by Default</strong> and require explicit user configuration:</p>
+        <h2>2. Optional Third-Party Integrations (Cloud Features)</h2>
+        <p>Users may optionally choose to enable cloud-based features to augment the local experience. These are <strong>Off by Default</strong> and require explicit configuration:</p>
         <ul>
-            <li><strong>Cloud NLU (OpenAI/Gemini)</strong>: If you choose to use a cloud-based AI engine, the transcribed text of your commands (and optionally images for OCR cleanup) will be sent to the respective provider (OpenAI or Google). This data is subject to their own privacy policies.</li>
-            <li><strong>Media Control (Spotify)</strong>: If you connect your Spotify account, we use the official Spotify SDK to control local playback. No account data is harvested by VoxApps.</li>
+            <li><strong>Cloud NLU (OpenAI/Gemini)</strong>: If enabled, transcribed text of your commands (and optionally images for OCR) will be sent to OpenAI or Google for intent parsing.</li>
+            <li><strong>Media Control (Spotify)</strong>: If connected, the app communicates with Spotify's API to manage your local playback and search their catalog.</li>
+            <li><strong>Currency Exchange Rates</strong>: Vox Expenses may download current exchange rates from public financial APIs to provide accurate multi-currency reports.</li>
+            <li><strong>Search Providers</strong>: Web search queries (Weather, News, Wikipedia) are sent to the respective third-party providers selected by the user.</li>
         </ul>
 
         <h2>3. Data Permissions</h2>
         <p>We request specific permissions only to enable core functionality:</p>
         <ul>
-            <li><strong>Microphone</strong>: For voice commands.</li>
-            <li><strong>Camera</strong>: For document scanning.</li>
-            <li><strong>Notifications</strong>: To capture transaction info (for Vox Expenses) or show active service status.</li>
-            <li><strong>Files/Media</strong>: To store encrypted backups and attachments.</li>
+            <li><strong>Microphone</strong>: For voice commands (Local STT).</li>
+            <li><strong>Camera</strong>: For document scanning (Local OCR).</li>
+            <li><strong>Notifications</strong>: To capture transaction info (Local Processing) or show active service status.</li>
+            <li><strong>Files/Media</strong>: To store encrypted backups and attachments locally.</li>
         </ul>
 
         <h2>4. Peer-to-Peer Sync (NFC/Bluetooth)</h2>
