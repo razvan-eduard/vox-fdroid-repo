@@ -1,3 +1,56 @@
+- ci: force-update Git tag during release to sync GitHub Release date and code
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- feat(notifications): implement advanced notification control system across apps
+- feat(calendar): refine time picker logic and add end-time validation
+- docs: refresh latest-release links in README
+- chore: exclude assistant artifacts from repository
+- docs: refresh latest-release links in README
+- feat(calendar): implement unified hybrid split-screen view across apps
+- docs: refresh latest-release links in README
+- chore: finalize license transition to GPLv3
+- chore: transition license from MIT to GNU GPLv3
+- fix(calendar): break feedback loop between grid and agenda selection
+- Update README.md
+- docs: audit and correct AI architecture (remove llama.cpp, clarify L3 fallback)
+- docs: add updated XDA posts and justifications
+- docs: align messaging with hybrid architecture (Local-First vs 100% Offline)
+- docs: refresh latest-release links in README
+- feat: generate and sign Android App Bundles (AAB) for Google Play
+- feat: optimize F-Droid changelogs by using git log range
+- fix: change metadata deployment to true sync (handle deletions)
+- docs: update screenshots (switch to jpeg and add new ones)
+- fix: support JPEG screenshots in F-Droid metadata sync
+- fix: adjust screenshot path for F-Droid and add redundancy
+- fix: adjust F-Droid metadata structure for screenshots and improve sync
+- feat: sync screenshots to F-Droid metadata
+- docs: update full descriptions for F-Droid from APPS_OVERVIEW.md
+- chore: add workflow_dispatch to deploy-fdroid
+- feat: sync icons and descriptions to F-Droid metadata
+- fix: force add metadata in F-Droid deploy (was ignored by .gitignore)
+- fix: revert unnecessary versionCode bumps and robustify F-Droid sync
+- feat: add F-Droid metadata sync and bump versionCode for all apps
+- Fix: Corrected keyAlias for Vox Commander release signing in CI
+- feat(attachments): capture attachments directly from the camera
+- fix(calendar): reminder preset chips overflow in a plain Row
+- feat(calendar): exact-alarm reminders for non-recurring entries
+- docs: refresh latest-release links in README
+- deps: bump androidx.media:media from 1.7.0 to 1.8.0 (#36)
+- fix(commander): make ModelManagementViewModel's IO dispatcher injectable
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs(fastlane): add extra screenshots for calendar, commander, expenses, hub
+- feat(notes,expenses,calendar): scrollable widgets + header tap-to-open
+- docs: refresh latest-release links in README
+- docs: document data-quality merge scoring and the direction-safety guard
+- feat(expenses,datahygiene): data-quality merge scoring + direction safety guard
+- fix(expenses): pending-duplicate review list grew without bound
+- deps: bump agp from 9.3.0 to 9.3.1 (#34)
+- deps: bump androidx.compose:compose-bom from 2026.02.01 to 2026.06.01 (#37)
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
 - docs: refresh latest-release links in README
 - chore: version bump apps to trigger fresh GitHub Actions builds
 - docs: add baseline screenshots for IzzyOnDroid metadata
