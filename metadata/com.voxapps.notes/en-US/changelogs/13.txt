@@ -1,3 +1,5 @@
+- feat(theme): add native particle "highlight today" effects across apps
+- fix(notifications): delete stale versioned channels, log MediaPlayer failures, add tests
 - ci: force-update Git tag during release to sync GitHub Release date and code
 - docs: refresh latest-release links in README
 - docs: refresh latest-release links in README
