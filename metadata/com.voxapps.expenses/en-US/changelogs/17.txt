@@ -1,0 +1,11 @@
+- fix(expenses): widget could miss auto-accepted notification expenses
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- feat(calendar): show tag suggestions as an inline expanding card, not a popup
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- feat(calendar): suggest existing tags when adding a tag to an entry
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- fix(notes): update stale manifest-actions test for get_field_schema
