@@ -1,0 +1,2 @@
+- fix(expenses): line-items rescan copy misleadingly said "line items" only
+- docs: refresh latest-release links in README

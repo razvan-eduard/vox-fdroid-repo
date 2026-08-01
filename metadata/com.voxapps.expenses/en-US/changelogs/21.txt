@@ -1,3 +1,0 @@
-- fix(expenses): line-items rescan staleness + missing DB migration registration
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README
