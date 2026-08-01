@@ -1,2 +1,0 @@
-- feat(expenses): re-run LLM scan on a photo attached after the expense was saved
-- docs: refresh latest-release links in README

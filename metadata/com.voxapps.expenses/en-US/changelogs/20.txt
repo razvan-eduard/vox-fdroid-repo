@@ -1,0 +1,2 @@
+- fix(expenses): line-items rescan discarded parsed items when no total found; add field-suggestion chips and auto-trigger
+- docs: refresh latest-release links in README
