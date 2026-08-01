@@ -1,0 +1,5 @@
+- feat(calendar): suggest existing tags when adding a tag to an entry
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- docs: refresh latest-release links in README
+- fix(notes): update stale manifest-actions test for get_field_schema
