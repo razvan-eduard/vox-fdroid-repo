@@ -1,3 +1,5 @@
+- fix(ci): remove disproven onnxruntime-android auto-merge carve-out
+- docs: refresh latest-release links in README
 - chore(vision): bump to 0.13, ship latest onnxruntime-android 1.28.0 for re-verification
 - revert(ci): drop the real-device emulator CI gate, back to manual review
 - fix(ci): try macOS + software emulation for native-lib-verify
