@@ -1,3 +1,5 @@
+- fix(deps): pin onnxruntime-android to working versions, add real-device CI verification
+- docs: refresh latest-release links in README
 - feat(vision): bump version to 0.12 and implement version-aware DLC auto-update
 - docs: refresh latest-release links in README
 - docs: refresh latest-release links in README
