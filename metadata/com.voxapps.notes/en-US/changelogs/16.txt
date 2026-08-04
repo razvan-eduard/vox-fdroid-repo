@@ -1,4 +1,1 @@
 - feat(calendar): unify to-do items into CalendarEntry, add voice/scan creation, redesign timeline
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README

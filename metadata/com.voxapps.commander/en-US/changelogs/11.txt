@@ -1,7 +1,1 @@
 - feat(calendar): unify to-do items into CalendarEntry, add voice/scan creation, redesign timeline
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README
-- feat(vision): ML-based document corner detection via DocQuadNet-256
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README

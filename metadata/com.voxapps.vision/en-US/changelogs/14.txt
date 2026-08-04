@@ -1,3 +1,1 @@
 - feat(vision): ML-based document corner detection via DocQuadNet-256
-- docs: refresh latest-release links in README
-- docs: refresh latest-release links in README
