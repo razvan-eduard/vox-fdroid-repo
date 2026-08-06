@@ -1,2 +1,1 @@
-- feat(calendar): day view opens scrolled to now, with a time label on the now-line
-- feat(calendar): unify to-do items into CalendarEntry, add voice/scan creation, redesign timeline
+- fix(backup): stop silently dropping FastMap rules, ToDo Lists, reminders, and duplicate rules

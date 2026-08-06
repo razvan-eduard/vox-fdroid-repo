@@ -1,3 +1,1 @@
-- feat(settings): add labeled section banners to Settings menus
-- feat(voxconnect): schema-driven field discovery, device rename, foreground bridge service
-- feat(voxconnect): reverse pairing direction so the PC generates the QR and the phone scans it
+- fix(backup): stop silently dropping FastMap rules, ToDo Lists, reminders, and duplicate rules
