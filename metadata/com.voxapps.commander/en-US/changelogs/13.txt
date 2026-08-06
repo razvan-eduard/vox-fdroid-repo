@@ -1,2 +1,1 @@
-- fix(commander): update 3 tests left stale by the capability-driven LLM refactor
-- feat(commander): migrate on-device LLM to LiteRT-LM, expand system toggles and FastMap matching
+- fix(backup): stop silently dropping FastMap rules, ToDo Lists, reminders, and duplicate rules
