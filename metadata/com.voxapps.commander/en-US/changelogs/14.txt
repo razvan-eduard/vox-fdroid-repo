@@ -1,0 +1,1 @@
+- fix(commander): fix on-device NLU truncation/hallucination, scope prompt to selected apps
