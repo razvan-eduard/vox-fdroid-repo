@@ -1,1 +1,1 @@
-- feat(calendar): day view opens scrolled to now, with a time label on the now-line
+- fix(backup): stop silently dropping FastMap rules, ToDo Lists, reminders, and duplicate rules
