@@ -1,1 +1,2 @@
-- fix(commander): fix on-device NLU truncation/hallucination, scope prompt to selected apps
+- feat(backup): add shared :core:backup module, per-app Backup & Restore screens, 3-way import mode
+- feat(location): unify Commander/Expenses GPS handling into :core:location
