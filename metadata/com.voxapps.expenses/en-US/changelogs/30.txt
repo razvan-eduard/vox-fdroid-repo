@@ -1,0 +1,2 @@
+- feat(attachments): show a paperclip indicator on records with attachments
+- fix(expenses): rename Capture-section menu labels, scroll the settings menu
