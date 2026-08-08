@@ -1,2 +1,7 @@
-- feat(backup): add shared :core:backup module, per-app Backup & Restore screens, 3-way import mode
-- feat(location): unify Commander/Expenses GPS handling into :core:location
+- fix(commander): give every Gson-parsed class a constructor Gson can use
+- fix(commander): coalesce the settings map an import can spell null
+- fix(commander): read the languages from what declares them
+- fix(commander): stop the endpoint field probing what is half typed
+- fix(commander): do not borrow a credential from an engine that is not there
+- fix(commander): stop a missing key from locking an engine out of reach
+- fix(commander): restore what the generic integration card stopped drawing
