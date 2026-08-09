@@ -1,1 +1,2 @@
+- fix(ci): stop the verification build compiling whisper.cpp
 - fix(commander): an archive cannot write outside the model directory
