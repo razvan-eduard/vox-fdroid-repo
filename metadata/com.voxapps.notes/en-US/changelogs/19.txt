@@ -1,1 +1,4 @@
+- fix(notes): restore three settings dropped when the shared notification card landed
+- feat(calendar): make the timeline's "now" follow the clock, and share the widget day heading
+- fix: audit_fix Phase 1 — crash, ANR, mic and descriptor leaks
 - feat(attachments): show a paperclip indicator on records with attachments
