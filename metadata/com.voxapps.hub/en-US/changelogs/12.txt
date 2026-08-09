@@ -1,1 +1,2 @@
+- fix(hub): stop a partial backup from looking like a complete one
 - feat(backup): add shared :core:backup module, per-app Backup & Restore screens, 3-way import mode
