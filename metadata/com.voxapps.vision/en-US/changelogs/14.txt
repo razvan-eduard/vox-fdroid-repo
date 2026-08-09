@@ -1,1 +1,3 @@
+- fix(commander,vision): make DLC lib downloads survive a transient failure
+- fix(commander,vision): derive DLC release tag from BuildConfig, not a stale fallback
 - feat(vision): ML-based document corner detection via DocQuadNet-256
