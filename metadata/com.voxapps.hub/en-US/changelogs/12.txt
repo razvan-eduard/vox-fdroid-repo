@@ -1,2 +1,4 @@
 - fix(hub): stop a partial backup from looking like a complete one
+- refactor: adopt the shared helpers and close the audit's Phase 2/3 findings
+- refactor(core): extract the shared code the audit's duplication findings need
 - feat(backup): add shared :core:backup module, per-app Backup & Restore screens, 3-way import mode

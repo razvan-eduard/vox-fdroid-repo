@@ -1,5 +1,0 @@
-- feat: make the repository the source of truth, with the bundled schemas as the choice
-- fix(calendar): put the day's remark where the now-line is, and tick on the minute
-- feat(calendar): make the timeline's "now" follow the clock, and share the widget day heading
-- fix: audit_fix Phase 1 — crash, ANR, mic and descriptor leaks
-- feat(calendar): multiple calendars — subscriptions, per-calendar reminders, batch move

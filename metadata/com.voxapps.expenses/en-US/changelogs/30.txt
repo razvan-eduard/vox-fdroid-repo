@@ -1,6 +1,0 @@
-- fix(services): a name that will not resolve is not a service that is down
-- feat: make the repository the source of truth, with the bundled schemas as the choice
-- feat(calendar): make the timeline's "now" follow the clock, and share the widget day heading
-- feat: let each app follow its own schema repository, and declare the rate provider
-- fix(ipc): let the liveness ping reach a stopped app
-- fix: audit_fix Phase 1 — crash, ANR, mic and descriptor leaks

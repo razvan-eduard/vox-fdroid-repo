@@ -1,3 +1,5 @@
+- refactor: adopt the shared helpers and close the audit's Phase 2/3 findings
+- refactor(core): extract the shared code the audit's duplication findings need
 - fix(commander,vision): make DLC lib downloads survive a transient failure
 - fix(commander,vision): derive DLC release tag from BuildConfig, not a stale fallback
 - feat(vision): ML-based document corner detection via DocQuadNet-256

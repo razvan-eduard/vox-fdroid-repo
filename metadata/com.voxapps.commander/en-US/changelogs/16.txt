@@ -1,7 +1,0 @@
-- fix(services): a name that will not resolve is not a service that is down
-- feat(commander): an imported model is a model
-- feat: make the repository the source of truth, with the bundled schemas as the choice
-- feat: let each app follow its own schema repository, and declare the rate provider
-- fix(commander): give every Gson-parsed class a constructor Gson can use
-- fix(commander): coalesce the settings map an import can spell null
-- fix(commander): read the languages from what declares them
