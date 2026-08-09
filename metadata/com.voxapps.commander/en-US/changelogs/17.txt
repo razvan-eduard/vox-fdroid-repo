@@ -1,1 +1,1 @@
-Maintenance update and performance improvements.
+- fix(commander): an archive cannot write outside the model directory
