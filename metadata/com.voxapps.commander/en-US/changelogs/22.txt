@@ -1,1 +1,2 @@
+- fix(whisper): keep the libraries where the loaders look for them
 - feat(whisper): address the runtime by the commit it was built from
