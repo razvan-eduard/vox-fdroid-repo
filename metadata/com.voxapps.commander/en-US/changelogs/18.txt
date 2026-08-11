@@ -1,7 +1,0 @@
-- refactor(core): one identity for the APIs that ask who is calling
-- feat(core): check a downloaded native library against what the build recorded
-- refactor(commander): write the NLU prompt in one language
-- fix(ipc): say "locked" in the user's language
-- fix(commander): one System Maintenance heading, not two
-- fix(commander): load Whisper before the benchmark calls into it
-- fix(core): load a bundled library by asking the linker, not the filesystem
