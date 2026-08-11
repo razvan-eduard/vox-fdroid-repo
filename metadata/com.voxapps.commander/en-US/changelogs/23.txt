@@ -1,0 +1,3 @@
+- fix(whisper): record the digests of what the release serves, not what this machine built
+- fix(probe): stop blaming the service for a network that was not up yet
+- fix: close the 2026-08 audit — gates that can fail, digests everywhere, staleness that refetches
