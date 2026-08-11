@@ -1,1 +1,0 @@
-- feat(whisper): verify downloaded libraries against digests recorded at build
