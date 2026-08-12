@@ -1,0 +1,1 @@
+- perf(commander): the local LLM's system prompt holds still so its prefill can be reused
