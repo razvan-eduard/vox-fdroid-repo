@@ -1,0 +1,2 @@
+- feat(commander): schema-declared gates, a Google-services toggle, and the 3B model returns
+- fix(commander): configuring the local LLM no longer demands cloud consent
