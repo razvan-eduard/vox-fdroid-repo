@@ -1,0 +1,2 @@
+- feat(commander): GPU acceleration is a per-engine switch that proves itself per device
+- feat(commander): libllama.so gains the Vulkan backend, chosen per model load
