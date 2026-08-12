@@ -1,0 +1,2 @@
+- fix(commander): the LLM warm-up survives a cold start's empty registry
+- feat(commander): the local LLM is llama.cpp — no Google path remains
