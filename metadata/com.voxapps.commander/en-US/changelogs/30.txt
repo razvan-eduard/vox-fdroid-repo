@@ -1,0 +1,2 @@
+- fix(commander): the GPU test names the engine it tested, not whisper
+- fix(commander): the build host leaves no trace in the native libraries
