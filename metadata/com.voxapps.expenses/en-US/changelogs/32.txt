@@ -1,1 +1,6 @@
-Maintenance update and performance improvements.
+- refactor(satellites): a spoken record enters and leaves by the same door
+- feat(satellites): every way a record is made inherits the same shape
+- refactor(core): what a person taught, and what a message yields, move out of expenses
+- feat(core): one shape for turning an input into a record
+- feat(expenses): a captured notification need not be sent anywhere
+- feat(core): the lines and the totals check each other, before and after tax

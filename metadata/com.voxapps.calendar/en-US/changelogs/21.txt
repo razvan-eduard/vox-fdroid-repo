@@ -1,1 +1,5 @@
-Maintenance update and performance improvements.
+- refactor(satellites): a spoken record enters and leaves by the same door
+- feat(satellites): every way a record is made inherits the same shape
+- fix(expenses,calendar): an open editor is keyed to its record
+- fix(backup): the restore mode explains itself where it is chosen — and dateless to-dos finally travel
+- feat(calendar): item delete asks first; blank titles invite typing instead of demanding it

@@ -1,1 +1,5 @@
-Maintenance update and performance improvements.
+- feat(satellites): every way a record is made inherits the same shape
+- fix(backup): the restore mode explains itself where it is chosen — and dateless to-dos finally travel
+- feat(suite): the to-do editor lives inline on its node; one location field, one attachment capture rule everywhere
+- feat(suite): corrections + re-map rules learn from edits; widgets go live; locations are searched, not typed
+- refactor: local logic that already had a core home moves into it
