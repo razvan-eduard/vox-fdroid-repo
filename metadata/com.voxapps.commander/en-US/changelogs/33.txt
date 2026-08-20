@@ -1,0 +1,6 @@
+- feat(commander): the LiteRT engines are reachable only through consent
+- feat: the scan prompt fits the engine that will answer it
+- feat(commander): the model catalog serves LiteRT-LM again
+- feat(commander): the on-device LLM is a choice of backend again
+- fix(commander): one address for the whisper runtime, and a release job that can build it
+- fix(commander): the LLM hook survives long decodes

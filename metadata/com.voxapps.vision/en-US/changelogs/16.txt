@@ -1,0 +1,3 @@
+- fix: close the 2026-08 audit — gates that can fail, digests everywhere, staleness that refetches
+- refactor(build): let AGP package the DLC libs, and the build sign itself
+- refactor(core): one NativeLibs, and a switch for how much of it ships
