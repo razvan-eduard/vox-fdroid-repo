@@ -1,3 +1,6 @@
-- fix: close the 2026-08 audit — gates that can fail, digests everywhere, staleness that refetches
-- refactor(build): let AGP package the DLC libs, and the build sign itself
-- refactor(core): one NativeLibs, and a switch for how much of it ships
+- feat(vision): a page that did not read is developed again, differently
+- fix(vision): a crop keeps a margin beyond the edge it detected
+- feat(vision): a reconstructed document names its three regions
+- feat(vision): table-mode scans record the geometry they read
+- feat(vision): table mode is additive and its plain text follows printed rows
+- feat(scan): table mode reads invoices as tables; items and totals that prove themselves skip the LLM
