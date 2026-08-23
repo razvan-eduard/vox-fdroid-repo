@@ -1,5 +1,1 @@
-- feat(expenses): a payment announces itself, and the app files it under a name you already use
-- fix(expenses): one payment announced twice is one record, and the words that read it are yours to keep
-- feat(expenses): payments that come back are noticed, and a capture can clear its notification
-- feat(expenses): rules trigger on amounts, show only the fields they use, and stop restating the matcher
-- feat(expenses): a captured payment may be filed on an assumption you chose
+- fix(expenses): a restored backup remembers which category records fall back to
