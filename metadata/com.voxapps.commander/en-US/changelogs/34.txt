@@ -1,4 +1,1 @@
-- feat(ipc): an answer comes back with the question it answered
-- feat(core): the header is read by what a letterhead is, not by one label
-- feat(expenses): a reading is a footer and a set of rows proving each other
-- feat(commander): the LiteRT engines carry a bigger lineup
+- fix(expenses): one payment announced twice is one record, and the words that read it are yours to keep
