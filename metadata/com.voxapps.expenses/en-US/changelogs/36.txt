@@ -1,1 +1,1 @@
-- feat(expenses): a category is the same category wherever it is made, and says so wherever it appears
+- feat(expenses): a narrowed list says what it is narrowed to, and money knows which card it left
