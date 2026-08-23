@@ -1,0 +1,1 @@
+- feat(expenses): a category is the same category wherever it is made, and says so wherever it appears
