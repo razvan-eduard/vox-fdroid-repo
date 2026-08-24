@@ -1,0 +1,1 @@
+- fix(expenses): one payment announced twice is one record, and the words that read it are yours to keep
