@@ -1,1 +1,1 @@
-- fix(expenses): one payment announced twice is one record, and the words that read it are yours to keep
+- feat(onboarding): every app explains itself the same way, and one control makes it explain itself again
