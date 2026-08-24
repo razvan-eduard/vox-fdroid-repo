@@ -1,0 +1,3 @@
+- feat(categories): a category is edited where it is read, and its records outlive it
+- feat(expenses): a message that says the payment was refused is not read at all
+- feat(expenses): a rule is written as alternatives, an amount can be asked which side of a figure it falls, and being told is a consequence of its own
