@@ -1,1 +1,2 @@
-Maintenance update and performance improvements.
+- feat(onboarding): every app explains itself the same way, and one control makes it explain itself again
+- fix(calendar): a row nobody named does not stay, and the marker beside it is not cut in half
