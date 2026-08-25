@@ -1,0 +1,6 @@
+- refactor(expenses): a bank is the name of an account, not a field beside it
+- feat(expenses): every record a narrowing has left, chosen without picking one first
+- feat(expenses): the budget screen carries the filter its figures are drawn under
+- feat(expenses): many records at once — chosen together, edited together, put away or destroyed
+- feat(expenses): a record can say which card it went through
+- feat(expenses): what waits can be dismissed, one kind at a time or all of it

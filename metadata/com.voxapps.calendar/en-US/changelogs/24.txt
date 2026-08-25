@@ -1,0 +1,2 @@
+- feat(core): choosing things out of a list is one set of rules, kept in one place
+- feat(expenses): a rule is written as alternatives, an amount can be asked which side of a figure it falls, and being told is a consequence of its own
