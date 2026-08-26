@@ -1,3 +1,4 @@
-- feat(vision): Vox LiveView — the camera as a reader, behind its own icon
-- refactor(vision): the camera's shared floor moves out of the scan screen
-- feat(design): every settings-menu row says what its page holds
+- fix(apps): an imported field that is missing reads as missing, never as the word null
+- feat(i18n): one loader and one parity rule, held by a test in every app
+- feat(ipc): the contract says everything once, and the manifests advertise what the code answers
+- fix(vision): a zone switch waits its turn, and every frame copy is handed back
