@@ -1,0 +1,2 @@
+- feat(notes): notes are written rich — formatted, resized, and fullscreen
+- feat(design): every settings-menu row says what its page holds

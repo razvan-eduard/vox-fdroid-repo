@@ -1,0 +1,2 @@
+- feat(design): every settings-menu row says what its page holds
+- feat(design): a name is corrected where it is read
