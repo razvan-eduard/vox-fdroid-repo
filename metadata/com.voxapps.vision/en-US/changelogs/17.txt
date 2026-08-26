@@ -1,6 +1,3 @@
-- feat(vision): a page that did not read is developed again, differently
-- fix(vision): a crop keeps a margin beyond the edge it detected
-- feat(vision): a reconstructed document names its three regions
-- feat(vision): table-mode scans record the geometry they read
-- feat(vision): table mode is additive and its plain text follows printed rows
-- feat(scan): table mode reads invoices as tables; items and totals that prove themselves skip the LLM
+- feat(vision): Vox LiveView — the camera as a reader, behind its own icon
+- refactor(vision): the camera's shared floor moves out of the scan screen
+- feat(design): every settings-menu row says what its page holds
