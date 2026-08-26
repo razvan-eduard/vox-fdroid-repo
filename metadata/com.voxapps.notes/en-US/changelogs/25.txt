@@ -1,2 +1,4 @@
-- feat(notes): notes are written rich — formatted, resized, and fullscreen
-- feat(design): every settings-menu row says what its page holds
+- fix(apps): an imported field that is missing reads as missing, never as the word null
+- feat(applock): the lock trio, the db key and the midnight scheduler live once
+- feat(i18n): one loader and one parity rule, held by a test in every app
+- feat(ipc): the contract says everything once, and the manifests advertise what the code answers
