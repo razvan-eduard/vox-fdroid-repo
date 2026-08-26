@@ -1,5 +1,1 @@
-- fix(expenses): a settings page taller than the screen scrolls
-- fix(expenses): a screen nobody touched has nothing to discard
-- feat(design): a name is corrected where it is read
-- feat(expenses): both routes read the same names, and keep what they read
-- fix(expenses): a group summary is a container, not a message
+- feat(design): every settings-menu row says what its page holds
