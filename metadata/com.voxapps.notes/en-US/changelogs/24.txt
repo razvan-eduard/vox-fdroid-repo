@@ -1,0 +1,1 @@
+- feat(categories): a category is edited where it is read, and its records outlive it
