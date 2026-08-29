@@ -1,5 +1,2 @@
-- fix(apps): an imported field that is missing reads as missing, never as the word null
-- feat(applock): the lock trio, the db key and the midnight scheduler live once
-- feat(i18n): one loader and one parity rule, held by a test in every app
-- feat(ipc): the contract says everything once, and the manifests advertise what the code answers
-- fix(expenses): a stored name this build does not know degrades to the default
+- refactor(expenses): one standing notification, present only when it earns it — the dashboard the person turned on, or a payment waiting to be rescanned; its content switches grey out with the master off but keep their choice
+- feat(expenses): capture survives the platform's code guard — a redacted payment waits as a stub, recovered from the shade by an opt-in accessibility reader, behind a configurable standing notification that keeps the app alive
