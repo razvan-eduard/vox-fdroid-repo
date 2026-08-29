@@ -1,0 +1,1 @@
+- feat(design): every logic sheet rides Commander's overlay shell — fullscreen, no handle, drag the content to dismiss; the rule editor gains an enable switch and proposals surface newest-first
