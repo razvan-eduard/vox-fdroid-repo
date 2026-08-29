@@ -1,0 +1,1 @@
+- fix(expenses,calendar): tidy the first-run and hint text — one dialog on the notifications screen, backup names recipients, and calendar's second bullet titles the calendars its own description describes
