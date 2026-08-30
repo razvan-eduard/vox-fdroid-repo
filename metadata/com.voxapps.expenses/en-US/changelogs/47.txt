@@ -1,1 +1,1 @@
-- fix(expenses,calendar): tidy the first-run and hint text — one dialog on the notifications screen, backup names recipients, and calendar's second bullet titles the calendars its own description describes
+- feat(expenses,calendar,notes): voice gets the none-to-full dial — the shared level card everywhere, an offline rung that files for review, and the spoken sentence kept on the record
