@@ -1,0 +1,1 @@
+- feat(design,notes,calendar): the resize grip lives in core and the to-do edit face grows, maxes and goes fullscreen like a note
