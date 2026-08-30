@@ -1,0 +1,2 @@
+- feat(calendar): the + menu learns the third way a calendar arrives — .ics import extracted into one shared flow, landing in a new calendar or an existing one
+- feat(design,notes,calendar): the resize grip lives in core and the to-do edit face grows, maxes and goes fullscreen like a note
