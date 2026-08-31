@@ -1,3 +1,1 @@
-- feat(expenses): the list pages where it narrows — an (archivedAt, dateTime) index under the walk, a Paging3 window for the scroll, a cold snapshot for the screens that hold a list, and a ui state that carries no rows
-- refactor(expenses): the list narrows in the database — filters and sort in the query, vocabularies as column aggregates, Unicode matching as the residual
-- fix(expenses): the standing notification follows every save, delete and midnight — not yesterday's total
+- feat(sync): two phones agree on what they share — sharing opted into per account, category and calendar, an acknowledged paged exchange, every field on the wire, and records that say which device they came from
