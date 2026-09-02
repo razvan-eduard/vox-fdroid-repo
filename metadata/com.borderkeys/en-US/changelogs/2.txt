@@ -1,0 +1,1 @@
+- Same code as 0.1.0. The version code was raised so this release can install over builds side-loaded during development, which shared version code 1 with it and left F-Droid nothing to offer.
