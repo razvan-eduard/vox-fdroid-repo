@@ -1,0 +1,3 @@
+- The clipboard chip no longer runs over the suggestion beside it: two lines, broken between words, ending in an ellipsis
+- A small paste mark instead of quotation marks, which read as part of what was copied
+- The chip can withdraw itself once it has been used or the keyboard has closed, without forgetting anything — what you copied stays in the history panel

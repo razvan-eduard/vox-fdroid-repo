@@ -1,0 +1,4 @@
+- Holding the enter key opens the settings
+- A space is added after a full stop, comma, question or exclamation mark, and a space in front of one is taken back when the mark lands — two switches, either can be off
+- The clipboard history can be emptied when the keyboard closes, separately from emptying the system clipboard after an insert
+- A Shortcuts card lists the gestures, and offers to put the settings on the home screen
