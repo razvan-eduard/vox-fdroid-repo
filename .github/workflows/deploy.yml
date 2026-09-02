@@ -65,6 +65,32 @@ jobs:
             gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*.apk" --dir repo/ --clobber \
               || { echo "No .apk asset on $tag, skipping."; continue; }
           done
+          echo "Downloaded VoxApps APKs:"
+          ls -la repo/
+
+      - name: Download the latest BorderKeys APK
+        # A separate step because BorderKeys lives in its own repository and tags plain
+        # versions rather than app-prefixed ones.
+        #
+        # Only the `core` flavour. Both flavours share the package id and the version code, so
+        # indexing them together would leave fdroid picking one of two APKs that claim to be
+        # the same release -- and `core` is the one without the inference runtime, which is
+        # what this repository has always published.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          SOURCE_REPO="razvan-eduard/borderkeys"
+          tag=$(gh release list --repo "$SOURCE_REPO" --limit 200 \
+                --json tagName,createdAt,isDraft \
+                --jq '[.[] | select(.isDraft == false) | select(.tagName | startswith("v"))] | sort_by(.createdAt) | last | .tagName // empty')
+          if [ -z "$tag" ]; then
+            echo "No BorderKeys release found, skipping."
+          else
+            echo "Latest BorderKeys release: $tag"
+            gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*-core.apk" --dir repo/ --clobber \
+              || echo "No core .apk asset on $tag, skipping."
+          fi
           echo "Downloaded APKs:"
           ls -la repo/
 

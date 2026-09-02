@@ -1,0 +1,15 @@
+An Android keyboard that requests zero permissions and contains no code capable of opening a network connection. Word prediction is a deterministic engine — a compact trie plus n-grams — written in C++ and running through JNI, not a language model.
+
+Nothing downloads at runtime. Dictionaries are inside the APK or imported by you from a local file. There is no telemetry, no crash reporting, no account and no sync. Clipboard history and the personal dictionary live in a SQLCipher-encrypted database whose key is held by the Android Keystore, and both are excluded from backup.
+
+Key Features:
+- Zero permissions: the build fails if an INTERNET permission or an HTTP client ever appears in the dependency graph, including through a library that brings one in without asking.
+- Six languages: Romanian, English, German, Spanish, French and Italian, for both the dictionaries and the interface. Up to four dictionaries are consulted at once.
+- Language detection: once a few words identify what is being written, the other dictionaries stop being offered — with a strict setting that never offers a language it has not recognised.
+- Grammar in the ranking: a part-of-speech transition model fills in where the n-grams have no evidence, so a rare word is still followed by a plausible one.
+- Swipe typing: decoded on the device in about a tenth of a millisecond, with no machine-learning model of any kind in this build.
+- A personal dictionary that learns the words and the pairs you actually write, never in a password field, and forgets them on request.
+- Clipboard history as a panel of cards, with a switch for images and limits on both how many entries and how far back.
+- A configurable quick-action bar, one-handed and floating placement, and a theme editor with a live preview.
+
+The keyboard itself draws every key onto a Canvas and resolves touches arithmetically. There is no Compose and no XML inflation in the typing process, which is what keeps a keystroke under two milliseconds.

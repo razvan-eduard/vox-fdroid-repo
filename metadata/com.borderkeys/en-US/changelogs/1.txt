@@ -1,0 +1,4 @@
+- First tagged build: a keyboard with no permissions and no network access, predicting from a compact trie and n-grams compiled into the application
+- Six languages for both the dictionaries and the interface, with detection of which one is being written
+- Swipe typing, corrections you can undo with backspace, and the word you typed always offered in the middle of the strip
+- Clipboard history as a panel of cards, a configurable quick-action bar, one-handed and floating placement
