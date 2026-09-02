@@ -1,0 +1,6 @@
+- Capitalisation is derived from what the field asked for and what is already written, so it comes back after you delete to the start of a line or move the cursor there, and it honours fields that want every word or every character capitalised
+- The keys show whether shift is on, which they never did
+- Two spaces make a full stop, undone by the backspace after it
+- Sliding along the space bar moves the cursor
+- A keypress can make a sound, off by default
+- An emoji key beside the space bar opens a grid of 1,886 emoji in Unicode's own groups, with the ones you use kept at the front

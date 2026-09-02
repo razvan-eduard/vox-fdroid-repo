@@ -1,0 +1,2 @@
+- The emoji key can be turned off, and the width it took goes back to the space bar
+- Backspacing away a correction now forgets the word it corrected to, rather than only remembering the word you kept
