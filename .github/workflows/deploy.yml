@@ -68,14 +68,15 @@ jobs:
           echo "Downloaded VoxApps APKs:"
           ls -la repo/
 
-      - name: Download the latest BorderKeys APK
+      - name: Download the latest BorderKeys APKs
         # A separate step because BorderKeys lives in its own repository and tags plain
         # versions rather than app-prefixed ones.
         #
-        # Only the `core` flavour. Both flavours share the package id and the version code, so
-        # indexing them together would leave fdroid picking one of two APKs that claim to be
-        # the same release -- and `core` is the one without the inference runtime, which is
-        # what this repository has always published.
+        # Both flavours, now: `core` and `plus` (com.borderkeys and com.borderkeys.plus) split
+        # into two separate applicationIds as of v0.3.0, so indexing them side by side no
+        # longer means fdroid picking between two APKs claiming the same release -- they are
+        # two distinct apps, the same way the six VoxApps ones above are. `plus` adds an
+        # on-device text assistant on top of everything `core` already has.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -88,8 +89,10 @@ jobs:
             echo "No BorderKeys release found, skipping."
           else
             echo "Latest BorderKeys release: $tag"
-            gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*-core.apk" --dir repo/ --clobber \
-              || echo "No core .apk asset on $tag, skipping."
+            for flavor in core plus; do
+              gh release download "$tag" --repo "$SOURCE_REPO" --pattern "*-${flavor}.apk" --dir repo/ --clobber \
+                || echo "No $flavor .apk asset on $tag, skipping."
+            done
           fi
           echo "Downloaded APKs:"
           ls -la repo/
