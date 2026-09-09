@@ -1,0 +1,5 @@
+- First release in this repository: BorderKeys + adds an on-device text assistant to everything the core keyboard already does
+- A draft box above the keys, opened from a text selection in any app or typed into directly
+- Correct, translate, change tone, shorten, or rewrite by your own instruction — every version is kept
+- Inference runs in its own process on this device; no model is bundled and none can be downloaded automatically
+- Installs alongside the core build without replacing it — separate settings, separate learning

@@ -1,0 +1,8 @@
+- Backspace keeps deleting whole words while held, not just one
+- Undo and redo for the field you're actually typing in
+- Auto dark/light theme, with an option to follow the wallpaper's colours
+- Short words keep their diacritics even against a longer correction ("in" → "în")
+- Bigger dictionaries, grown from the same corpora
+- A personal word fades with disuse instead of being remembered forever
+- Every suggestion in the strip now matches the case you actually typed
+- A separate "BorderKeys +" build is now available, adding an on-device text assistant
