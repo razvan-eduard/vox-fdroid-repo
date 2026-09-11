@@ -1,0 +1,1 @@
+- feat(calendar): chain into the time picker when a new entry's date is set first

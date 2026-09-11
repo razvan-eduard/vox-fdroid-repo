@@ -1,0 +1,1 @@
+- feat(sync): two phones agree on what they share — sharing opted into per account, category and calendar, an acknowledged paged exchange, every field on the wire, and records that say which device they came from
