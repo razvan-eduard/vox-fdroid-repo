@@ -1,0 +1,2 @@
+- fix: a tap in the editor resolves the radial ring, not just on the keyboard
+- fix: make the plus listing's shared text verbatim identical to vanilla's
