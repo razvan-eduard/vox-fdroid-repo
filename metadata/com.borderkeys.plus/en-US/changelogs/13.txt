@@ -1,0 +1,7 @@
+- fix: a suggestion's case is fully decided by context, not partly by storage
+- feat: redesign the radial menu into a single continuous stroke
+- fix: radial menu z-order, strip mutex, and settings usability
+- feat: add an optional radial suggestion menu for swipe typing
+- fix: swipe model's DCT basis was rank-deficient, plus a native test stack overflow
+- feat: wire the trained swipe decoder into the engine, plus-only
+- fix: train.py divided already-normalised swipe coordinates a second time
