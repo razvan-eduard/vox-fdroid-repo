@@ -1,0 +1,2 @@
+- fix: the top row's long-press alternatives popup was hidden by the finger
+- feat: haptic feedback on suggestion strip taps
