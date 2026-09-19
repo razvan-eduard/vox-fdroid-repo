@@ -1,0 +1,5 @@
+- fix: swipe works wherever suggestions do, through one gate instead of two
+- feat: the capital a name gets is a switch, for when the dictionaries are wrong about it
+- feat: the swipe model loads when its switch is on, and is freed when it is off
+- fix: the gutter and full-width-background settings live in one card, and the blur no longer vanishes
+- feat: a switch that keeps offensive words out of suggestions, corrections and learning
