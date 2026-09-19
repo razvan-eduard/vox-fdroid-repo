@@ -1,0 +1,3 @@
+- fix: the numpad's zero keeps its column when an optional key is gone
+- fix: the space you type is only swallowed where the keyboard really put one
+- fix: reuse lint passes again, and the training logs carry their terms
