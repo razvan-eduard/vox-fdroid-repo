@@ -1,0 +1,6 @@
+- feat(expenses): reconcile account budgets from a notification's second figure
+- feat(expenses): make budget reconciliation reachable from the UI
+- fix(expenses): stop reimplementing the known-currencies list without uppercasing it
+- feat(expenses): show each day's total in the widget's own date heading
+- fix(expenses): stop the pending-review queue from duplicating and make dismiss actually clear the notification
+- fix(expenses): resolve two marked amounts as spent-then-balance, not a decline
