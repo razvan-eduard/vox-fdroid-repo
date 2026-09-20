@@ -1,0 +1,1 @@
+- fix(expenses): close five stale-refresh gaps in the persistent notification and widget
