@@ -1,0 +1,5 @@
+- feat(layout): the symbols page as a number pad beside the symbols, larger strip words, and the docs and screenshots to match
+- feat: modifier row, searching panels, feature tour, debug stats, faster swipe decode
+- feat(effects): an effects module, and the events that can use it
+- feat(pack): a folded key carries every spelling, and a word you typed is kept
+- feat(dict): a word must be typeable in the language that claims it

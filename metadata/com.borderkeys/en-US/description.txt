@@ -1,0 +1,79 @@
+An Android keyboard that requests zero permissions and contains no code capable of opening
+a network connection. Word prediction is a deterministic engine — a compact trie plus
+n-grams — written in C++ and running through JNI, not a language model.
+
+Nothing downloads at runtime. Dictionaries and language packs are either inside the APK or
+imported by you from a local file. There is no telemetry, no crash reporting, no account
+and no sync. Clipboard history and the personal dictionary live in a SQLCipher-encrypted
+database and are excluded from system backup and from device-to-device transfer.
+
+* No permissions at all. Haptic feedback uses the API that needs none.
+* The typing surface is a custom View drawing on a Canvas — no Compose and no XML layout
+  inflation in the keyboard process.
+* Several languages active at once, with no manual switching. Mixing two languages in one
+  sentence is the normal case, not an exception.
+* Notices when a correction was made under the wrong language and offers the word back, or
+  fixes it automatically — your choice — landing on the field's own undo history like any
+  other edit.
+* Swipe typing decoded geometrically on-device, with an optional radial menu: pause
+  mid-swipe, without lifting, to open a ring of alternatives and slide onto one, or onto
+  Cancel in the centre, all in one continuous stroke — or keep the ring open and tap. A tap
+  anywhere outside it closes it and keeps the swiped word. Off by default.
+* Autocorrect you can bound: off by default, and when on, the shortest word it may touch and
+  how different a correction may be from what you typed are settings. A correct word the
+  dictionaries do not know is left alone, a regular form of a word they do know is never
+  corrected away, and backspace or a tap on the strip puts back exactly what you typed.
+* Block offensive words, if you want to: one switch keeps a per-language list of profanity
+  and slurs out of suggestions, corrections and learning. What you type yourself is never
+  touched.
+* Shift the way every keyboard does it — spent by the next letter, locked by a hold or two
+  taps. Capitals off, on when the field asks, or on everywhere: one choice, since some apps
+  forget to ask.
+* The pressed key shows itself enlarged above your finger while it is held, and the keypress
+  vibration follows the phone's own setting or one of three strengths, from its own feedback
+  classes — still with no vibration permission.
+* Text shortcuts: a word that stands for a longer text expands when a space or a punctuation
+  mark follows it, keeps the capital you gave it, and comes back with the backspace straight
+  after.
+* A names dictionary built from Wikidata (CC0), so a name capitalises correctly
+  mid-sentence instead of only at the start of one — while everyday words that happen to be
+  somebody's name stay lower-case. One switch turns the capital off if you disagree with it.
+* Alternate physical layouts — AZERTY, Dvorak, QWERTZ, ClearFlow, KasRoz and Toki Pona —
+  alongside QWERTY, for every bundled language, and a symbols page with the digits in a 3×3
+  block beside the symbols, at the right or the left, on near-square keys.
+* An optional modifier row for terminals and editors: Esc, Tab, Ctrl, Alt and the arrows,
+  with Home, End, Page up, Page down, forward Delete and Insert on offer, in the order you
+  choose, above the letters or below the keyboard, each sent as the hardware key it names.
+  Ctrl and Alt apply to the next key; with shift held, the arrows select.
+* Panels that search by the word under the caret: open the emoji panel over "cake" and the
+  cakes come first; open the clipboard over "invoice" and the clips containing it come first.
+  A long press on a clip pins, edits or deletes it.
+* A personal dictionary you can see and edit: every learned word has a Forget and a Block
+  right beside it, not a black box.
+* A row of quick actions — copy, paste, cut, select, delete a word, move the cursor, undo
+  and redo, flip a word's capital, capitalise every sentence in the field — extendable with
+  your own macros; above the suggestions, below the keys or down a side, in four sizes, with
+  optional labels and outlines.
+* Every settings card leads with what changes how typing feels; the calibration values and
+  the choices made once fold under an "Advanced settings" line. A tour after setup shows
+  every feature with a preview, its default and where to switch it on.
+* Debug stats, one line above the settings' own typing box: the keyboard's latency, swipe
+  and memory figures, rated against a baseline and shareable as text.
+* Built-in themes, full manual colour control, and a library to save, import and share
+  your own.
+* Particle effects on the keys, the ring, the strip and the bars: an outline layer that
+  traces each element's edge and a fill layer inside it, six built-in looks and your own
+  saved presets. Off by default.
+* Backup and restore everything this keyboard has learned and configured to a single file
+  you control, with a checklist of what a file contains before any of it is applied.
+  Nothing syncs anywhere on its own.
+* Private mode is automatic in password fields and whenever an app sets
+  IME_FLAG_NO_PERSONALIZED_LEARNING: no learning, no clipboard history, no personal
+  dictionary. A Show button on the strip reveals what the field holds, and hides it again.
+* Works with any installed password manager through the platform's inline autofill
+  suggestions. The keyboard cannot read their contents — the platform guarantees that —
+  and never sees your password.
+
+This is the "core" build: it contains no machine-learning model of any kind, and no
+code that could run one. A separate "BorderKeys +" is published alongside it for anyone
+who wants the on-device text assistant; the two can be installed at the same time.
