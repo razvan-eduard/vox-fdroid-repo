@@ -1,0 +1,1 @@
+- fix(release): a tag already at the commit being released keeps its annotation
