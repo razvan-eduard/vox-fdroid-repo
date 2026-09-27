@@ -1,0 +1,4 @@
+- feat(dictionary): sentence openers are learned and offered first, and the learning switch gates every personal suggestion
+- fix(ring): a ring resolved by its own timeout ends the stroke that opened it
+- fix(ime): the word under the caret is adopted once per caret move, however the editor reports it
+- feat(dictionaries): nineteen downloadable packs, their lists, budgets and accent corpora
