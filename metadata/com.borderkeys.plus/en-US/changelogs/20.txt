@@ -1,0 +1,6 @@
+- feat(settings): every "Advanced settings" fold names what it holds
+- feat(settings): the "Try it here" field names its mode inside the empty box, and its label changes it
+- feat(settings): the settings search sits in the title row of the home screen
+- fix(packs): importing a pack already installed takes the earlier copy's place
+- feat(terminal): a Terminals card to add terminal apps, and a smoke case typing into Termux
+- feat(packs): Indonesian, the twenty-first downloadable pack
